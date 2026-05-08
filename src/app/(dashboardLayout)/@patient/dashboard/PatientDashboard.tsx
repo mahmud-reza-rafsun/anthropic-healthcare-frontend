@@ -50,7 +50,7 @@ interface DashboardProps {
     };
 }
 
-export default function StudentDashboard({ data }: DashboardProps) {
+export default function PatientDashboard({ data }: DashboardProps) {
     const { stats, totalSpent, recentBookings } = data;
     const formattedChartData = React.useMemo(() => {
         if (!recentBookings || recentBookings.length === 0) {
@@ -82,7 +82,7 @@ export default function StudentDashboard({ data }: DashboardProps) {
                 <StatCard
                     title="Total Spent"
                     value={`$${totalSpent || 0}`}
-                    footer="Lifetime investment"
+                    footer="Lifetime cost"
                     icon={Wallet}
                 />
                 <StatCard
@@ -94,7 +94,7 @@ export default function StudentDashboard({ data }: DashboardProps) {
                 <StatCard
                     title="Active"
                     value={stats?.activeBookings || 0}
-                    footer="Ongoing learning"
+                    footer="Ongoing treatment"
                     icon={Clock}
                 />
                 <StatCard
@@ -107,9 +107,9 @@ export default function StudentDashboard({ data }: DashboardProps) {
 
             <div className="grid gap-6 md:grid-cols-7">
                 {/* Learning Activity Chart */}
-                <Card className="col-span-4 rounded-[2rem] border-zinc-200 shadow-sm dark:border-zinc-800">
+                <Card className="col-span-4 rounded-2xl border-zinc-200 shadow-sm dark:border-zinc-800">
                     <CardHeader>
-                        <CardTitle className="text-lg font-bold">Learning Activity</CardTitle>
+                        <CardTitle className="text-lg font-bold">Treatment Activity</CardTitle>
                         <CardDescription>Number of sessions per month</CardDescription>
                     </CardHeader>
                     <CardContent className="h-80">
@@ -117,8 +117,8 @@ export default function StudentDashboard({ data }: DashboardProps) {
                             <AreaChart data={formattedChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                                 <defs>
                                     <linearGradient id="colorSessions" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="5%" stopColor="#f97316" stopOpacity={0.3} />
-                                        <stop offset="95%" stopColor="#f97316" stopOpacity={0} />
+                                        <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3} />
+                                        <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
                                     </linearGradient>
                                 </defs>
                                 <CartesianGrid strokeDasharray="3 3" vertical={false} className="stroke-zinc-200 dark:stroke-zinc-800" />
@@ -127,17 +127,17 @@ export default function StudentDashboard({ data }: DashboardProps) {
                                 <Tooltip
                                     contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                                 />
-                                <Area type="monotone" dataKey="sessions" stroke="#f97316" strokeWidth={3} fillOpacity={1} fill="url(#colorSessions)" />
+                                <Area type="monotone" dataKey="sessions" stroke="#3b82f6" strokeWidth={3} fillOpacity={1} fill="url(#colorSessions)" />
                             </AreaChart>
                         </ResponsiveContainer>
                     </CardContent>
                 </Card>
 
                 {/* Recent Bookings List */}
-                <Card className="col-span-3 rounded-[2rem] border-zinc-200 shadow-sm dark:border-zinc-800">
+                <Card className="col-span-3 rounded-2xl border-zinc-200 shadow-sm dark:border-zinc-800">
                     <CardHeader>
                         <CardTitle className="text-lg font-bold">Recent Bookings</CardTitle>
-                        <CardDescription>Your latest tutor sessions</CardDescription>
+                        <CardDescription>Your latest doctor sessions</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-4">

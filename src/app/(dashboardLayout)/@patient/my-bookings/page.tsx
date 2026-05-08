@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { studentService } from "@/service/student.service";
+import { patientService } from "@/service/patient.service";
 import MyBookingTable from "./MyBookingTable";
 
 export default async function BookingHistoryPage() {
-    const response = await studentService.getMyTutorBookings();
+    const response = await patientService.getMyDoctorBookings();
     const bookings = Array.isArray(response?.data) ? response.data : [];
     const totalSpent = bookings
         .filter((b: any) => b.status === "COMPLETED")

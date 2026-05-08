@@ -22,7 +22,7 @@ export function AvailabilityCard({ day, startTime, endTime, onTimeChange }: Avai
                         type="time"
                         value={startTime}
                         onChange={(e) => onTimeChange(day, "startTime", e.target.value)}
-                        className="pl-9 h-11 bg-white dark:bg-zinc-800 border-none focus-visible:ring-1 focus-visible:ring-orange-500 font-medium"
+                        className="pl-9 h-11 bg-white dark:bg-zinc-800 border-none focus-visible:ring-1 focus-visible:ring-blue-500 font-medium"
                     />
                 </div>
 
@@ -34,7 +34,7 @@ export function AvailabilityCard({ day, startTime, endTime, onTimeChange }: Avai
                         type="time"
                         value={endTime}
                         onChange={(e) => onTimeChange(day, "endTime", e.target.value)}
-                        className="pl-9 h-11 bg-white dark:bg-zinc-800 border-none focus-visible:ring-1 focus-visible:ring-orange-500 font-medium"
+                        className="pl-9 h-11 bg-white dark:bg-zinc-800 border-none focus-visible:ring-1 focus-visible:ring-blue-500 font-medium"
                     />
                 </div>
             </div>

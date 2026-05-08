@@ -113,7 +113,7 @@ export default function AdminDashboard({ stats, revenueDetails, platformOverview
                                 <CartesianGrid
                                     strokeDasharray="3 3"
                                     vertical={false}
-                                    className="stroke-orange-200 dark:stroke-orange-900/30"
+                                    className="stroke-blue-200 dark:stroke-blue-900/30"
                                 />
                                 <XAxis dataKey="label" axisLine={false} tickLine={false} fontSize={12} />
                                 <YAxis axisLine={false} tickLine={false} fontSize={12} />
@@ -149,7 +149,7 @@ export default function AdminDashboard({ stats, revenueDetails, platformOverview
                                 <CartesianGrid
                                     strokeDasharray="3 3"
                                     vertical={false}
-                                    className="stroke-orange-200 dark:stroke-orange-900/30"
+                                    className="stroke-blue-200 dark:stroke-blue-900/30"
                                 />
                                 <XAxis dataKey="date" axisLine={false} tickLine={false} fontSize={12} />
                                 <YAxis axisLine={false} tickLine={false} fontSize={12} />

@@ -1,4 +1,4 @@
-import { tutorsService } from "@/service/tutor.service";
+import { tutorsService } from "@/service/doctor.service";
 import TutorDetails from "./TutorDetails";
 import NotFound from "@/app/not-found";
 

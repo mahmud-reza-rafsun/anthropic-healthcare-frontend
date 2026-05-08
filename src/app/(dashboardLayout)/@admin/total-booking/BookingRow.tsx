@@ -29,7 +29,7 @@ export default function BookingRow({ order }: { order: any }) {
             <td className="px-6 py-4">
                 <div className="flex flex-col gap-1">
                     <div className="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300">
-                        <Calendar size={14} className="text-orange-500" />
+                        <Calendar size={14} className="text-blue-500" />
                         <span>{order.day}</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-xs text-gray-500">
@@ -40,7 +40,7 @@ export default function BookingRow({ order }: { order: any }) {
             </td>
 
             {/* 4. Price */}
-            <td className="px-6 py-4 text-sm font-bold text-orange-600 dark:text-orange-500">
+            <td className="px-6 py-4 text-sm font-bold text-blue-600 dark:text-blue-500">
                 ${order.totalAmount}
             </td>
 
@@ -48,7 +48,7 @@ export default function BookingRow({ order }: { order: any }) {
             <td className="px-6 py-4">
                 <div className={`inline-flex items-center px-3 py-1 rounded-full gap-x-2 
         ${order.status === "PENDING"
-                        ? 'text-orange-600 bg-orange-100 dark:bg-orange-900/30 dark:text-orange-400'
+                        ? 'text-blue-600 bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400'
                         : order.status === "CONFIRMED"
                             ? 'text-green-600 bg-green-100 dark:bg-green-900/30 dark:text-green-400'
                             : 'text-blue-600 bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400'
@@ -57,7 +57,7 @@ export default function BookingRow({ order }: { order: any }) {
                     {/* Status Dot */}
                     <span className={`h-1.5 w-1.5 rounded-full 
             ${order.status === "PENDING"
-                            ? 'bg-orange-500'
+                            ? 'bg-blue-500'
                             : order.status === "CONFIRMED"
                                 ? 'bg-green-500'
                                 : 'bg-blue-500'

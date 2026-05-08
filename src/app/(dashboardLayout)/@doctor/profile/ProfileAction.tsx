@@ -1,7 +1,7 @@
 "use server";
 
 import { categoryService } from "@/service/category.service";
-import { tutorsService } from "@/service/tutor.service";
+import { tutorsService } from "@/service/doctor.service";
 import { revalidatePath } from "next/cache";
 
 export async function setTutorProfileAction(finalData: any) {

@@ -1,6 +1,6 @@
 "use server";
 
-import { tutorsService } from "@/service/tutor.service";
+import { tutorsService } from "@/service/doctor.service";
 import { revalidatePath } from "next/cache";
 
 export async function ApproveRejectBooking(bookingId: string, status: string) {

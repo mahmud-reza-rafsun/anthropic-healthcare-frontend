@@ -53,7 +53,7 @@ export const tutorsService = {
             return { data: null, error: "Something Went Wrong" };
         }
     },
-    getAllTutors: async (searchTerm: string = "", category: string = "", page: number = 1, limit: number = 6) => {
+    getAllDoctor: async (searchTerm: string = "", category: string = "", page: number = 1, limit: number = 6) => {
         try {
             const cookieStore = await cookies();
             const res = await fetch(
@@ -83,7 +83,7 @@ export const tutorsService = {
             return { data: [], meta: null, error: "Something Went Wrong" };
         }
     },
-    getMyStudentBookings: async () => {
+    getMyPatientBookings: async () => {
         try {
             const cookieStore = await cookies();
 
@@ -107,7 +107,7 @@ export const tutorsService = {
             return { data: [], error: "Something Went Wrong" };
         }
     },
-    getTutorStats: async () => {
+    getDoctorStats: async () => {
         try {
             const cookieStore = await cookies();
 
@@ -179,7 +179,7 @@ export const tutorsService = {
             return { data: null, error: "Something Went Wrong" };
         }
     },
-    getStudentReviews: async () => {
+    getPatientReviews: async () => {
         try {
             const cookieStore = await cookies();
 

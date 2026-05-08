@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { TutorCard } from "@/components/modules/tutorCard/TutorCard";
-import { tutorsService } from "@/service/tutor.service";
+import { tutorsService } from "@/service/doctor.service";
 import TutorFilterHeader from "./DoctorFilterHeader";
 import { categoryService } from "@/service/category.service";
 import { Pagination } from "./Pagination";

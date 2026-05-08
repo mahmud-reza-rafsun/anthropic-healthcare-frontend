@@ -6,15 +6,15 @@ import { Roles } from "@/constants/role";
 
 export default function TotalUsersRow({ user }: { user: any }) {
     const isAdmin = user.role === Roles.admin;
-    const isTutor = user.role === Roles.tutor;
-    const isStudent = user.role === Roles.student;
+    const isDoctor = user.role === Roles.doctor;
+    const isPatient = user.role === Roles.patient;
 
     return (
         <tr className="hover:bg-gray-50 dark:hover:bg-[#1c1c1d] transition-colors border-b border-gray-100 dark:border-gray-800">
             {/* User Info */}
             <td className="px-6 py-4">
                 <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center text-orange-600 font-bold">
+                    <div className="w-9 h-9 rounded-full bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 font-bold">
                         {user.name?.charAt(0)}
                     </div>
                     <div>
@@ -30,13 +30,13 @@ export default function TotalUsersRow({ user }: { user: any }) {
                 <div className={`inline-flex items-center px-3 py-1 rounded-full gap-x-2 
         ${isAdmin
                         ? 'text-green-600 bg-green-100 dark:bg-green-900/30 dark:text-green-400'
-                        : isTutor
+                        : isDoctor
                             ? 'text-yellow-600 bg-yellow-100 dark:bg-yellow-900/30 dark:text-yellow-400'
                             : 'text-red-600 bg-red-100 dark:bg-red-900/30 dark:text-red-400'
                     }`}>
                     {/* Role Indicator Dot */}
                     <span className={`h-1.5 w-1.5 rounded-full 
-            ${isAdmin ? 'bg-green-500' : isTutor ? 'bg-yellow-500' : 'bg-red-500'}`}>
+            ${isAdmin ? 'bg-green-500' : isDoctor ? 'bg-yellow-500' : 'bg-red-500'}`}>
                     </span>
                     <h2 className='text-xs font-bold uppercase'>{user.role}</h2>
                 </div>
@@ -70,7 +70,7 @@ export default function TotalUsersRow({ user }: { user: any }) {
                         className={`p-2 rounded-lg transition-colors cursor-pointer 
                             ${isAdmin
                                 ? 'text-gray-300 dark:text-gray-700 cursor-not-allowed'
-                                : 'text-orange-500 hover:bg-orange-50 dark:hover:bg-orange-900/20'}`}
+                                : 'text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20'}`}
                         title={isAdmin ? "Cannot block admin" : "Block User"}
                     >
                         <Ban size={18} />

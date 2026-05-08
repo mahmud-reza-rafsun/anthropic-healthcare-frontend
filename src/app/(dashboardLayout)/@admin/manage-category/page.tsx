@@ -61,8 +61,8 @@ export default function CategoryPage() {
         <div className="max-w-7xl mx-auto p-6 space-y-10 min-h-screen">
             {/* Header */}
             <div className="flex items-center gap-3 border-b border-gray-200 dark:border-zinc-800 pb-5">
-                <div className="p-2 bg-orange-500/10 rounded-lg">
-                    <LayoutGrid className="w-6 h-6 text-orange-500" />
+                <div className="p-2 bg-blue-500/10 rounded-lg">
+                    <LayoutGrid className="w-6 h-6 text-blue-500" />
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold dark:text-gray-100">Categories</h1>
@@ -80,7 +80,7 @@ export default function CategoryPage() {
                             placeholder="e.g. Web Development"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            className="w-full h-11 bg-zinc-50 dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 rounded-lg px-4 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all"
+                            className="w-full h-11 bg-zinc-50 dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 rounded-lg px-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                         />
                     </div>
                     <div className="space-y-2">
@@ -97,7 +97,7 @@ export default function CategoryPage() {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="bg-orange-500 hover:bg-orange-600 text-white px-6 h-11 rounded-lg font-medium text-sm flex items-center gap-2 transition-all active:scale-95 disabled:opacity-50"
+                            className="bg-blue-500 hover:bg-blue-600 text-white px-6 h-11 rounded-lg font-medium text-sm flex items-center gap-2 transition-all active:scale-95 disabled:opacity-50"
                         >
                             {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
                             Add Category
@@ -112,7 +112,7 @@ export default function CategoryPage() {
 
                 {isLoading ? (
                     <div className="flex justify-center py-10">
-                        <Loader2 className="w-8 h-8 animate-spin text-orange-500" />
+                        <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -120,10 +120,10 @@ export default function CategoryPage() {
                             categories.map((cat) => (
                                 <div
                                     key={cat.id}
-                                    className="group flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl hover:border-orange-500/50 transition-all shadow-sm"
+                                    className="group flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl hover:border-blue-500/50 transition-all shadow-sm"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <div className="p-2 bg-zinc-50 dark:bg-zinc-800 rounded-lg text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                                        <div className="p-2 bg-zinc-50 dark:bg-zinc-800 rounded-lg text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
                                             <Tag className="w-4 h-4" />
                                         </div>
                                         <div>

@@ -13,8 +13,8 @@ export default async function ManageOrdersPage() {
                     <h2 className="text-xl font-bold text-gray-900 dark:text-white">Review Orders</h2>
                     <p className="text-sm text-gray-500 dark:text-gray-400">Manage student orders and payments</p>
                 </div>
-                <div className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 rounded-full">
-                    <p className="text-xs font-bold text-orange-600 dark:text-orange-400">
+                <div className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 rounded-full">
+                    <p className="text-xs font-bold text-blue-600 dark:text-blue-400">
                         {displayBooking.length} Orders
                     </p>
                 </div>

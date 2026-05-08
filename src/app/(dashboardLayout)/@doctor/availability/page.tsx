@@ -64,7 +64,7 @@ export default function AvailabilityPage() {
                     <Button
                         type="submit"
                         disabled={isPending}
-                        className="w-full h-12 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl transition-all flex gap-3"
+                        className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all flex gap-3"
                     >
                         {isPending ? <Loader2 className="animate-spin" /> : <Save size={20} />}
                         {isPending ? "Saving..." : "Save Schedule"}

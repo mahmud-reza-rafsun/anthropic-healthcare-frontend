@@ -1,5 +1,5 @@
 // app/become-tutor/page.tsx
-import { tutorsService } from "@/service/tutor.service";
+import { tutorsService } from "@/service/doctor.service";
 import TutorForm from "./TutorForm";
 
 export default async function BecomeTutorPage() {

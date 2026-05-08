@@ -1,4 +1,4 @@
-import { tutorsService } from "@/service/tutor.service";
+import { tutorsService } from "@/service/doctor.service";
 import ReviewTableRow from "./ReviewTableRow";
 
 export default async function TutorReviewPage() {

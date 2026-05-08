@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import MyBookingTable from "./MyBookingTable";
-import { tutorsService } from "@/service/tutor.service";
+import { tutorsService } from "@/service/doctor.service";
 
 export default async function TutorBookingsPage() {
     const response = await tutorsService.getMyStudentBookings();

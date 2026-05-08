@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { studentService } from "@/service/student.service";
+import { studentService } from "@/service/patient.service";
 import { SuccessStudentCard, SuccessStudentSkeleton } from "./StudentCard";
 import { SuccessPagination } from "./Pagination";
 
