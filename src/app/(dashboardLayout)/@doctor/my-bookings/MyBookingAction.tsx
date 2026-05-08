@@ -1,11 +1,11 @@
 "use server";
 
-import { tutorsService } from "@/service/doctor.service";
+import { doctorService } from "@/service/doctor.service";
 import { revalidatePath } from "next/cache";
 
 export async function ApproveRejectBooking(bookingId: string, status: string) {
     try {
-        const res = await tutorsService.updateBookingStatus(bookingId, status);
+        const res = await doctorService.updateBookingStatus(bookingId, status);
 
         if (res.data) {
             revalidatePath("/my-bookings");
@@ -30,7 +30,7 @@ export async function ApproveRejectBooking(bookingId: string, status: string) {
 
 export async function DeleteBookingAction(bookingId: string) {
     try {
-        const res = await tutorsService.deleteBooking(bookingId);
+        const res = await doctorService.deleteBooking(bookingId);
 
         if (res.data) {
             revalidatePath("/my-bookings");

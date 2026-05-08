@@ -1,5 +1,5 @@
 export interface BookingModalProps {
-    tutor: any;
+    doctor: any;
     isOpen: boolean;
     onClose: () => void;
 }

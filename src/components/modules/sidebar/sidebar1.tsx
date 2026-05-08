@@ -37,17 +37,17 @@ const sidebarConfig = {
       { label: "Manage category", icon: ChartBarStacked, href: "/manage-category" },
     ],
   },
-  tutor: {
+  doctor: {
     title: "Doctor Menu",
     items: [
       { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
       { label: "My Bookings", icon: ClipboardList, href: "/my-bookings" },
       { label: "Availability", icon: TimerReset, href: "/availability" },
-      { label: "Students Reviews", icon: Gift, href: "/students-reviews" },
-      { label: "Tutor Profile", icon: UserPen, href: "/profile" },
+      { label: "Patient Reviews", icon: Gift, href: "/patient-reviews" },
+      { label: "Doctor Profile", icon: UserPen, href: "/profile" },
     ],
   },
-  student: {
+  patient: {
     title: "Patient Menu",
     items: [
       { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
@@ -59,11 +59,11 @@ const sidebarConfig = {
 export const Sidebar1 = ({ userRole, ...props }: { userRole?: string; } & React.ComponentProps<typeof Sidebar>) => {
   const pathname = usePathname();
 
-  const normalizedRole = userRole?.toLowerCase() || "patient";
+  const normalizedRole = userRole?.toLowerCase() || "patinet";
 
   const currentConfig =
     sidebarConfig[normalizedRole as keyof typeof sidebarConfig] ||
-    sidebarConfig.student;
+    sidebarConfig.patient;
 
   return (
     <Sidebar {...props}>

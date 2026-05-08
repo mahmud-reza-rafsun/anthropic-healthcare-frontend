@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { doctorService } from "@/service/doctor.service";
 import MyBookingTable from "./MyBookingTable";
-import { tutorsService } from "@/service/doctor.service";
 
 export default async function TutorBookingsPage() {
-    const response = await tutorsService.getMyStudentBookings();
+    const response = await doctorService.getMyPatientBookings();
     const bookings = Array.isArray(response?.data) ? response.data : [];
     const totalEarnings = bookings
         .filter((b: any) => b.status === "COMPLETED")
@@ -14,7 +14,7 @@ export default async function TutorBookingsPage() {
             {/* Header Section */}
             <div className="p-6 border-b border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div>
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">Student Bookings</h2>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">Patinet Bookings</h2>
                     <p className="text-sm text-gray-500 dark:text-gray-400">Manage your incoming tuition requests and schedule.</p>
                 </div>
                 <div className="flex gap-x-5">
@@ -34,8 +34,8 @@ export default async function TutorBookingsPage() {
                 <table className="w-full text-left">
                     <thead className="bg-gray-50 dark:bg-[#1c1c1d] text-[11px] uppercase text-gray-500 dark:text-gray-400 font-bold tracking-wider">
                         <tr>
-                            <th className="px-6 py-4">Student Info</th>
-                            <th className="px-6 py-4">Subject</th>
+                            <th className="px-6 py-4">Patient Info</th>
+                            <th className="px-6 py-4">Problem</th>
                             <th className="px-6 py-4">Day</th>
                             <th className="px-6 py-4">Time</th>
                             <th className="px-6 py-4">Amount</th>
@@ -53,12 +53,12 @@ export default async function TutorBookingsPage() {
                 {/* Empty State */}
                 {bookings.length === 0 && (
                     <div className="text-center py-20">
-                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-50 dark:bg-orange-900/10 text-orange-500 mb-4">
+                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 dark:bg-blue-900/10 text-blue-500 mb-4">
                             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                             </svg>
                         </div>
-                        <p className="text-gray-500 dark:text-gray-400 font-medium">No student requests found.</p>
+                        <p className="text-gray-500 dark:text-gray-400 font-medium">No patient requests found.</p>
                     </div>
                 )}
             </div>

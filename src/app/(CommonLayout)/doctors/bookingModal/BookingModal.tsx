@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { createBookingAction } from "./BookingAction";
 import { bookingPaymentAction } from "./BookingPaymentAction";
 
-export default function BookingModal({ tutor, isOpen, onClose }: BookingModalProps) {
+export default function BookingModal({ doctor, isOpen, onClose }: BookingModalProps) {
     const [step, setStep] = useState<'slot' | 'payment'>('slot');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [selectedDay, setSelectedDay] = useState<string | null>(null);
@@ -17,7 +17,7 @@ export default function BookingModal({ tutor, isOpen, onClose }: BookingModalPro
 
     if (!isOpen) return null;
 
-    const availabilitySlots = tutor.availability?.slots || {};
+    const availabilitySlots = doctor.availability?.slots || {};
     const slotsArray = Object.entries(availabilitySlots);
 
     const handleInitialSubmit = async (e: React.FormEvent) => {
@@ -36,8 +36,8 @@ export default function BookingModal({ tutor, isOpen, onClose }: BookingModalPro
 
             // STEP 1: create booking
             const res = await createBookingAction(
-                tutor.id,
-                Number(tutor.hourlyRate),
+                doctor.id,
+                Number(doctor.hourlyRate),
                 selectedDay,
                 timeRangeSlot
             );
@@ -49,11 +49,11 @@ export default function BookingModal({ tutor, isOpen, onClose }: BookingModalPro
                 return;
             }
 
-            const bookingId = res.data.id; // ✅ FIX
+            const bookingId = res.data.id;
             console.log("bookingId", bookingId);
-            console.log("tutorId", tutor.id);
+            console.log("tutorId", doctor.id);
             // STEP 2: create payment session
-            const paymentRes = await bookingPaymentAction(bookingId); // ✅ FIX
+            const paymentRes = await bookingPaymentAction(bookingId);
 
             console.log("PAYMENT RESPONSE:", paymentRes); // debug
 
@@ -101,31 +101,31 @@ export default function BookingModal({ tutor, isOpen, onClose }: BookingModalPro
                                     className={cn(
                                         "relative flex flex-col items-start p-4 rounded-2xl border-2 cursor-pointer transition-all duration-200",
                                         selectedDay === day
-                                            ? "border-orange-500 bg-orange-50/50 dark:bg-orange-500/10"
-                                            : "border-zinc-100 dark:border-zinc-800 hover:border-orange-200"
+                                            ? "border-blue-500 bg-blue-50/50 dark:bg-blue-500/10"
+                                            : "border-zinc-100 dark:border-zinc-800 hover:border-blue-200"
                                     )}
                                 >
                                     <div className="flex items-center justify-between w-full mb-1">
                                         <span className="font-bold text-zinc-900 dark:text-zinc-100">{day}</span>
-                                        {selectedDay === day && <CheckCircle2 className="text-orange-600 w-4 h-4" />}
+                                        {selectedDay === day && <CheckCircle2 className="text-blue-600 w-4 h-4" />}
                                     </div>
                                     <div className="flex items-center gap-1.5 text-[11px] text-zinc-500 font-bold uppercase">
-                                        <Clock size={12} className="text-orange-500" />
+                                        <Clock size={12} className="text-blue-500" />
                                         {details.startTime} - {details.endTime}
                                     </div>
                                 </div>
                             ))}
                         </div>
 
-                        <div className="p-4 bg-orange-50 dark:bg-orange-950/20 rounded-2xl border border-orange-100 dark:border-orange-900/30 flex justify-between items-center">
+                        <div className="p-4 bg-blue-50 dark:bg-blue-950/20 rounded-2xl border border-blue-100 dark:border-blue-900/30 flex justify-between items-center">
                             <div className="flex flex-col">
-                                <span className="text-[10px] text-orange-600 font-black uppercase">Amount Due</span>
-                                <span className="text-xl font-black text-orange-700 dark:text-orange-300">${tutor?.hourlyRate}</span>
+                                <span className="text-[10px] text-blue-600 font-black uppercase">Amount Due</span>
+                                <span className="text-xl font-black text-blue-700 dark:text-blue-300">${doctor?.hourlyRate}</span>
                             </div>
                             <Button
                                 type="submit"
                                 disabled={isSubmitting || !selectedDay}
-                                className="bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-bold px-8 h-12"
+                                className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold px-8 h-12"
                             >
                                 {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : "Confirm Slot"}
                             </Button>

@@ -1,13 +1,12 @@
 "use server";
 
-import { categoryService } from "@/service/category.service";
-import { tutorsService } from "@/service/doctor.service";
+import { doctorService } from "@/service/doctor.service";
 import { revalidatePath } from "next/cache";
 
-export async function setTutorProfileAction(finalData: any) {
+export async function setDoctorProfileAction(finalData: any) {
 
     try {
-        const res = await tutorsService.setTutorProfile(finalData);
+        const res = await doctorService.setDoctorProfile(finalData);
 
         if (res.data) {
             revalidatePath("/admin/categories");

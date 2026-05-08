@@ -1,11 +1,11 @@
 "use server";
-import { tutorsService } from "@/service/doctor.service";
+import { doctorService } from "@/service/doctor.service";
 import { revalidatePath } from "next/cache";
 
 export async function setTutorAvailabilityAction(finalData: any) {
 
     try {
-        const res = await tutorsService.setTutorAvailability(finalData);
+        const res = await doctorService.setDoctorAvailability(finalData);
 
         if (res.data) {
             revalidatePath("/admin/categories");

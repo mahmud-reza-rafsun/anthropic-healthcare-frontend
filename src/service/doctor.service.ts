@@ -4,12 +4,12 @@ import { cookies } from "next/headers";
 
 const BACKEND_URL = env.BACKEND_URL;
 
-export const tutorsService = {
-    setTutorProfile: async (finalData: any) => {
+export const doctorService = {
+    setDoctorProfile: async (finalData: any) => {
         try {
             const cookieStore = await cookies();
 
-            const res = await fetch(`${process.env.BACKEND_URL}/api/tutors/tutor-profile`, {
+            const res = await fetch(`${process.env.BACKEND_URL}/api/doctor/doctor-profile`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -29,11 +29,11 @@ export const tutorsService = {
             return { data: null, error: "Something Went Wrong" };
         }
     },
-    setTutorAvailability: async (finalData: any) => {
+    setDoctorAvailability: async (finalData: any) => {
         try {
             const cookieStore = await cookies();
 
-            const res = await fetch(`${process.env.BACKEND_URL}/api/tutors/create-availability`, {
+            const res = await fetch(`${process.env.BACKEND_URL}/api/doctor/create-availability`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export const tutorsService = {
         try {
             const cookieStore = await cookies();
             const res = await fetch(
-                `${BACKEND_URL}/api/tutors/get-all-tutors?searchTerm=${searchTerm}&category=${category}&page=${page}&limit=${limit}`,
+                `${BACKEND_URL}/api/doctor/get-all-doctor?searchTerm=${searchTerm}&category=${category}&page=${page}&limit=${limit}`,
                 {
                     method: "GET",
                     headers: {
@@ -73,7 +73,6 @@ export const tutorsService = {
             if (!res.ok) {
                 return { data: [], meta: null, error: result.message || "Unauthorized access!" };
             }
-
             return {
                 data: result.data,
                 meta: result.meta,
@@ -87,7 +86,7 @@ export const tutorsService = {
         try {
             const cookieStore = await cookies();
 
-            const res = await fetch(`${BACKEND_URL}/api/tutors/get-student-bookings`, {
+            const res = await fetch(`${BACKEND_URL}/api/doctor/get-patient-bookings`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -111,7 +110,7 @@ export const tutorsService = {
         try {
             const cookieStore = await cookies();
 
-            const res = await fetch(`${BACKEND_URL}/api/tutors/tutor-stats`, {
+            const res = await fetch(`${BACKEND_URL}/api/doctor/doctor-stats`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -135,7 +134,7 @@ export const tutorsService = {
         try {
             const cookieStore = await cookies();
 
-            const res = await fetch(`${process.env.BACKEND_URL}/api/tutors/status/${bookingId}`, {
+            const res = await fetch(`${process.env.BACKEND_URL}/api/doctor/status/${bookingId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -160,7 +159,7 @@ export const tutorsService = {
         try {
             const cookieStore = await cookies();
 
-            const res = await fetch(`${process.env.BACKEND_URL}/api/tutors/delete-booking/${bookingId}`, {
+            const res = await fetch(`${process.env.BACKEND_URL}/api/doctor/delete-booking/${bookingId}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -183,7 +182,7 @@ export const tutorsService = {
         try {
             const cookieStore = await cookies();
 
-            const res = await fetch(`${BACKEND_URL}/api/reviews/get-tutor-reviews`, {
+            const res = await fetch(`${BACKEND_URL}/api/reviews/get-doctor-reviews`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

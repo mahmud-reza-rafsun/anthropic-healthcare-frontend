@@ -1,13 +1,13 @@
-import { tutorsService } from "@/service/doctor.service";
-import TutorDashboard from "./TutorDashboard";
+import { doctorService } from "@/service/doctor.service";
+import DoctorDashboard from "./DoctorDashboard";
 
 export default async function Page() {
-    const response = await tutorsService.getTutorStats();
+    const response = await doctorService.getDoctorStats()
     const dashboardData = response?.data;
 
     if (!dashboardData) {
         return <div className="p-6">Loading or No data found...</div>;
     }
 
-    return <TutorDashboard data={dashboardData} />;
+    return <DoctorDashboard data={dashboardData} />;
 }

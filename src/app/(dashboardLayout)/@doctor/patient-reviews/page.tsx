@@ -1,10 +1,9 @@
-import { tutorsService } from "@/service/doctor.service";
+import { doctorService } from "@/service/doctor.service";
 import ReviewTableRow from "./ReviewTableRow";
 
 export default async function TutorReviewPage() {
-    const response = await tutorsService.getStudentReviews();
+    const response = await doctorService.getPatientReviews();
     const bookings = Array.isArray(response?.data) ? response.data : [];
-    console.log(bookings)
     return (
         <div className="bg-white dark:bg-[#161617] rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm">
             {/* Header Section */}
@@ -29,8 +28,8 @@ export default async function TutorReviewPage() {
                 <table className="w-full text-left">
                     <thead className="bg-gray-50 dark:bg-[#1c1c1d] text-[11px] uppercase text-gray-500 dark:text-gray-400 font-bold tracking-wider">
                         <tr>
-                            <th className="px-6 py-4">Tutor Details</th>
-                            <th className="px-6 py-4">Student Details</th>
+                            <th className="px-6 py-4">Doctor Details</th>
+                            <th className="px-6 py-4">Patient Details</th>
                             <th className="px-6 py-4">Rating & Feedback</th>
                             <th className="px-6 py-4 text-center">Schedule</th>
                             <th className="px-6 py-4 text-center">Status</th>

@@ -28,7 +28,7 @@ export const Pagination = ({ currentPage, totalPage }: PaginationProps) => {
             <button
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="p-2 rounded-lg border border-orange-500/20 hover:bg-orange-500 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
+                className="p-2 rounded-lg border border-blue-500/20 hover:bg-blue-500 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
             >
                 <ChevronLeft size={20} />
             </button>
@@ -39,8 +39,8 @@ export const Pagination = ({ currentPage, totalPage }: PaginationProps) => {
                     key={page}
                     onClick={() => handlePageChange(page)}
                     className={`w-10 h-10 rounded-lg border transition-all cursor-pointer font-medium ${currentPage === page
-                        ? "bg-orange-500 border-orange-500 text-white shadow-lg shadow-orange-500/20"
-                        : "border-orange-500/20 hover:border-orange-500 text-muted-foreground hover:text-orange-500"
+                        ? "bg-blue-500 border-blue-500 text-white shadow-lg shadow-blue-500/20"
+                        : "border-blue-500/20 hover:border-blue-500 text-muted-foreground hover:text-blue-500"
                         }`}
                 >
                     {page}
@@ -51,7 +51,7 @@ export const Pagination = ({ currentPage, totalPage }: PaginationProps) => {
             <button
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPage}
-                className="p-2 rounded-lg border border-orange-500/20 hover:bg-orange-500 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
+                className="p-2 rounded-lg border border-blue-500/20 hover:bg-blue-500 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
             >
                 <ChevronRight size={20} />
             </button>

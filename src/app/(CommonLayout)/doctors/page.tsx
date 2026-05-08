@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import { TutorCard } from "@/components/modules/tutorCard/TutorCard";
-import { tutorsService } from "@/service/doctor.service";
 import TutorFilterHeader from "./DoctorFilterHeader";
 import { categoryService } from "@/service/category.service";
 import { Pagination } from "./Pagination";
 import { Skeleton } from "@/components/ui/skeleton";
+import { doctorService } from "@/service/doctor.service";
+import { DoctorCard } from "./doctorCard/DoctorCard";
 
 // --- Skeleton Loader Component ---
 const TutorSkeleton = () => (
@@ -23,18 +23,18 @@ const TutorSkeleton = () => (
 
 // --- Tutors Data Fetching Component ---
 async function TutorList({ searchTerm, category, page, limit }: any) {
-    const { data: tutors, meta, error } = await tutorsService.getAllTutors(
+    const { data: doctor, meta, error } = await doctorService.getAllDoctor(
         searchTerm,
         category,
         page,
         limit
     );
 
-    if (!tutors || tutors.length === 0) {
+    if (!doctor || doctor.length === 0) {
         return (
             <div className="col-span-full text-center py-20 border-2 border-dashed border-zinc-200 dark:border-zinc-800 rounded-[2.5rem]">
                 <p className="text-zinc-500 font-medium">
-                    No tutors found {searchTerm || category ? "matching your criteria" : "at the moment"}.
+                    No doctors found {searchTerm || category ? "matching your criteria" : "at the moment"}.
                 </p>
             </div>
         );
@@ -43,8 +43,8 @@ async function TutorList({ searchTerm, category, page, limit }: any) {
     return (
         <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {tutors.map((tutor: any) => (
-                    <TutorCard key={tutor.id} tutor={tutor} />
+                {doctor.map((tutor: any) => (
+                    <DoctorCard key={tutor.id} doctor={doctor} />
                 ))}
             </div>
             <div className="mt-12">
