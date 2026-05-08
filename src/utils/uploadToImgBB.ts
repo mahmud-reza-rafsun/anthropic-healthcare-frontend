@@ -1,0 +1,27 @@
+export const uploadToImgBB = async (file: File) => {
+    try {
+        const formData = new FormData();
+        formData.append("image", file);
+
+        const apiKey = process.env.NEXT_PUBLIC_IMGBB_API_KEY;
+
+        const res = await fetch(
+            `https://api.imgbb.com/1/upload?key=${apiKey}`,
+            {
+                method: "POST",
+                body: formData,
+            }
+        );
+
+        const data = await res.json();
+
+        if (!data.success) {
+            throw new Error("Upload failed");
+        }
+
+        return data.data.url;
+
+    } catch (error: any) {
+        throw new Error(error.message || "Image upload error");
+    }
+};
