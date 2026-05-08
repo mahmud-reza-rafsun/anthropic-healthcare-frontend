@@ -14,9 +14,10 @@ import {
 } from "@/components/ui/alert-dialog";
 import { X, Trash2, Loader2, CalendarSync, UserStar } from "lucide-react";
 import { toast } from "sonner";
-import { ApproveRejectBooking, DeleteBookingAction } from "../../@tutor/my-bookings/MyBookingAction";
 import { CompleteSessionAction } from "./MyBookingAction";
-import TutorReviewModal from "./TutorReviewModal";
+import TutorReviewModal from "./DoctorReviewModal";
+import { ApproveRejectBooking, DeleteBookingAction } from "../../@doctor/my-bookings/MyBookingAction";
+import DoctorReviewModal from "./DoctorReviewModal";
 
 export default function MyBookingTable({ booking }: { booking: any }) {
     const [isPending, startTransition] = useTransition();
@@ -59,7 +60,7 @@ export default function MyBookingTable({ booking }: { booking: any }) {
 
     return (
         <>
-            <tr className="hover:bg-orange-50/30 dark:hover:bg-orange-900/5 transition-colors border-b border-gray-100 dark:border-gray-800">
+            <tr className="hover:bg-blue-50/30 dark:hover:bg-blue-900/5 transition-colors border-b border-gray-100 dark:border-gray-800">
 
                 {/* 1. TUTOR (Left Aligned) */}
                 <td className="px-6 py-4">
@@ -204,7 +205,7 @@ export default function MyBookingTable({ booking }: { booking: any }) {
                 </AlertDialogContent>
             </AlertDialog>
 
-            <TutorReviewModal bookingId={booking.id} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <DoctorReviewModal bookingId={booking.id} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
     );
 }

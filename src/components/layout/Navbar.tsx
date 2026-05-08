@@ -19,7 +19,7 @@ interface NavbarProps {
   };
 }
 
-const LogoIcon = () => (
+export const LogoIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M10 6H14V10H18V14H14V18H10V14H6V10H10V6Z"

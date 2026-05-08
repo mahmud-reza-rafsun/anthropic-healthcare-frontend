@@ -15,9 +15,9 @@ export default function UserProfile({ user }: { user: any }) {
             {/* Top Profile Card */}
             <div className="relative bg-white dark:bg-[#111111] rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-xl overflow-hidden">
 
-                {/* Orange Theme Banner with Pattern */}
-                <div className="h-48 bg-orange-500 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600"></div>
+                {/* blue Theme Banner with Pattern */}
+                <div className="h-48 bg-blue-500 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600"></div>
                     {/* Minimalist Pattern Overlay */}
                     <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`, backgroundSize: '24px 24px' }}></div>
                 </div>
@@ -32,7 +32,7 @@ export default function UserProfile({ user }: { user: any }) {
                                     {user?.image ? (
                                         <Image src={user.image} alt={user.name} fill className="object-cover" />
                                     ) : (
-                                        <div className="text-orange-200"><UserIcon size={70} /></div>
+                                        <div className="text-blue-200"><UserIcon size={70} /></div>
                                     )}
                                 </div>
                                 {/* Status Indicator */}
@@ -44,10 +44,10 @@ export default function UserProfile({ user }: { user: any }) {
                                     <h1 className="text-4xl font-black text-gray-900 dark:text-white tracking-tight">
                                         {user?.name}
                                     </h1>
-                                    {user?.role === "ADMIN" && <BadgeCheck className="text-orange-500" size={28} />}
+                                    {user?.role === "ADMIN" && <BadgeCheck className="text-blue-500" size={28} />}
                                 </div>
                                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 font-medium">
-                                    <Mail size={16} className="text-orange-400" />
+                                    <Mail size={16} className="text-blue-400" />
                                     <span>{user?.email}</span>
                                 </div>
                             </div>
@@ -57,9 +57,9 @@ export default function UserProfile({ user }: { user: any }) {
                         <div className="flex flex-wrap justify-center gap-3 mb-2">
                             <div className={`inline-flex items-center px-5 py-2 rounded-2xl gap-x-2 border shadow-sm backdrop-blur-md
                                 ${user?.role === "STUDENT"
-                                    ? 'bg-orange-50 dark:bg-orange-950/20 text-orange-600 border-orange-100 dark:border-orange-900/50'
+                                    ? 'bg-blue-50 dark:bg-blue-950/20 text-blue-600 border-blue-100 dark:border-blue-900/50'
                                     : 'bg-blue-50 dark:bg-blue-950/20 text-blue-600 border-blue-100 dark:border-blue-900/50'}`}>
-                                <span className={`h-2 w-2 rounded-full ${user?.role === "STUDENT" ? 'bg-orange-500' : 'bg-blue-500'}`}></span>
+                                <span className={`h-2 w-2 rounded-full ${user?.role === "STUDENT" ? 'bg-blue-500' : 'bg-blue-500'}`}></span>
                                 <span className='text-[12px] font-black uppercase tracking-widest'>{user?.role}</span>
                             </div>
 
@@ -77,24 +77,24 @@ export default function UserProfile({ user }: { user: any }) {
 
                 {/* Stats / Overview */}
                 <div className="bg-white dark:bg-[#111111] p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
-                    <h3 className="text-[11px] font-black text-orange-500 uppercase tracking-[0.3em] mb-8">Account Score</h3>
+                    <h3 className="text-[11px] font-black text-blue-500 uppercase tracking-[0.3em] mb-8">Account Score</h3>
                     <div className="space-y-8">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-4">
-                                <div className="p-3 rounded-2xl bg-orange-50 dark:bg-orange-950/20 text-orange-600"><Star size={20} fill="currentColor" /></div>
+                                <div className="p-3 rounded-2xl bg-blue-50 dark:bg-blue-950/20 text-blue-600"><Star size={20} fill="currentColor" /></div>
                                 <div>
                                     <p className="text-sm font-bold text-gray-800 dark:text-gray-200">Reputation</p>
                                     <p className="text-xs text-gray-500">Based on activity</p>
                                 </div>
                             </div>
-                            <span className="text-xl font-black text-orange-600">4.9</span>
+                            <span className="text-xl font-black text-blue-600">4.9</span>
                         </div>
 
                         <div className="h-px bg-gray-100 dark:bg-gray-800"></div>
 
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-4">
-                                <div className="p-3 rounded-2xl bg-orange-50 dark:bg-orange-950/20 text-orange-600"><ShieldCheck size={20} /></div>
+                                <div className="p-3 rounded-2xl bg-blue-50 dark:bg-blue-950/20 text-blue-600"><ShieldCheck size={20} /></div>
                                 <div>
                                     <p className="text-sm font-bold text-gray-800 dark:text-gray-200">Email Verified</p>
                                     <p className="text-xs text-gray-500">Identity check</p>
@@ -110,8 +110,8 @@ export default function UserProfile({ user }: { user: any }) {
                 {/* Main Details Section */}
                 <div className="lg:col-span-2 bg-white dark:bg-[#111111] p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
                     <div className="flex items-center justify-between mb-10">
-                        <h3 className="text-[11px] font-black text-orange-500 uppercase tracking-[0.3em]">Detailed Identity</h3>
-                        <button className="text-[10px] font-bold bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-500 hover:bg-orange-500 hover:text-white transition-colors">EDIT PROFILE</button>
+                        <h3 className="text-[11px] font-black text-blue-500 uppercase tracking-[0.3em]">Detailed Identity</h3>
+                        <button className="text-[10px] font-bold bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-500 hover:bg-blue-500 hover:text-white transition-colors">EDIT PROFILE</button>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8">
@@ -129,7 +129,7 @@ export default function UserProfile({ user }: { user: any }) {
 function DetailItem({ icon, label, value, isCode }: { icon: any, label: string, value: string, isCode?: boolean }) {
     return (
         <div className="flex items-start gap-4 group">
-            <div className="p-3 bg-gray-50 dark:bg-gray-800/50 text-orange-500 rounded-[1.2rem] border border-gray-100 dark:border-gray-700 group-hover:border-orange-200 dark:group-hover:border-orange-800 transition-all duration-300">
+            <div className="p-3 bg-gray-50 dark:bg-gray-800/50 text-blue-500 rounded-[1.2rem] border border-gray-100 dark:border-gray-700 group-hover:border-blue-200 dark:group-hover:border-blue-800 transition-all duration-300">
                 {icon}
             </div>
             <div className="space-y-1">

@@ -15,17 +15,17 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { userService } from "@/service/user.service";
 import { Roles } from "@/constants/role";
-import { ModeToggle } from "@/utils/ModeToggle";
 import { GlobalUser } from "@/utils/GlobalUser";
+import { DarkModeToggle } from "@/utils/DarkModeToggle";
 
 export default async function DashboardLayout({
     admin,
-    student,
-    tutor
+    patient,
+    doctor
 }: {
     admin: React.ReactNode;
-    student: React.ReactNode;
-    tutor: React.ReactNode;
+    patient: React.ReactNode;
+    doctor: React.ReactNode;
 }) {
 
     const session = await userService.getSession();
@@ -57,14 +57,14 @@ export default async function DashboardLayout({
 
                     {/* Right Side: Mode Toggle */}
                     <div className="mr-52 flex items-center gap-3">
-                        <ModeToggle />
+                        <DarkModeToggle />
                         <GlobalUser user={user} />
                     </div>
                 </header>
 
                 {/* 3. Main Content */}
                 <main className="p-4 relative pt-6 min-h-[calc(100vh-4rem)] gradientBg">
-                    {userRole === Roles.student ? student : userRole === Roles.admin ? admin : tutor}
+                    {userRole === Roles.patient ? patient : userRole === Roles.admin ? admin : doctor}
                 </main>
             </SidebarInset>
         </SidebarProvider>

@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiCheckCircle, FiActivity, FiHeart, FiShield, FiPlusCircle } from 'react-icons/fi';
+import Image from 'next/image';
 
 const stats = [
     { label: 'Happy Patients', value: '50K+', icon: <FiHeart className="text-blue-600" /> },
@@ -28,10 +29,13 @@ export default function AboutSection() {
                         className="flex-1 relative w-full"
                     >
                         <div className="relative z-10 rounded-[3rem] overflow-hidden border border-blue-500/10 bg-card/50 backdrop-blur-sm p-3 shadow-2xl">
-                            <img
-                                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
+                            <Image
+                                width={800}
+                                height={1000}
+                                src="https://i.ibb.co.com/TqhLZCkv/natanael-melchor-43-Lwv-C-e-QPM-unsplash.jpg"
                                 alt="Advanced Medical Technology"
-                                className="rounded-[2.6rem] w-full h-[650px] object-cover transition-transform duration-700 hover:scale-105"
+                                className="rounded-[2.6rem] w-full h-[600px] object-cover transition-transform duration-700 hover:scale-105"
+                                priority
                             />
                         </div>
                         {/* Decorative Accents */}

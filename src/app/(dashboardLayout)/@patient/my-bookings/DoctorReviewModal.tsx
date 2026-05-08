@@ -8,7 +8,7 @@ import { ReviewModalProps } from "@/types/booking.types";
 import { toast } from "sonner";
 import { postReviewAction } from "./ReviewAction";
 
-const TutorReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, bookingId }) => {
+const DoctorReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, bookingId }) => {
     const [rating, setRating] = useState<number>(0);
     const [hover, setHover] = useState<number>(0);
     const [comment, setComment] = useState("");
@@ -79,7 +79,7 @@ const TutorReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, booking
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                         placeholder="Share your valuable feedback..."
-                        className="w-full px-4 py-3 border focus:border-orange-500 dark:border-orange-600 rounded-xl border-orange-500 dark:bg-zinc-900 dark:text-gray-100 resize-none transition-all"
+                        className="w-full px-4 py-3 border focus:border-blue-500 dark:border-blue-600 rounded-xl border-blue-500 dark:bg-zinc-900 dark:text-gray-100 resize-none transition-all"
                     />
                 </div>
 
@@ -95,7 +95,7 @@ const TutorReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, booking
                     <Button
                         type="submit"
                         variant="default"
-                        className="bg-orange-600 hover:bg-orange-700 text-white rounded-lg px-6"
+                        className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-6"
                         disabled={rating === 0}
                     >
                         Submit Review
@@ -106,4 +106,4 @@ const TutorReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, booking
     );
 };
 
-export default TutorReviewModal;
+export default DoctorReviewModal;

@@ -55,7 +55,7 @@ export function GlobalUser({ user }: GlobalUserMenuProps) {
             <DropdownMenuTrigger asChild>
                 <Button
                     variant="ghost"
-                    className="relative cursor-pointer h-10 w-10 rounded-full border-2 border-orange-500/20 p-0 hover:bg-orange-500/10 transition-transform active:scale-95 focus-visible:ring-0"
+                    className="relative cursor-pointer h-10 w-10 rounded-full border-2 border-blue-500/20 p-0 hover:bg-blue-500/10 transition-transform active:scale-95 focus-visible:ring-0"
                 >
                     <Avatar>
                         <AvatarImage
@@ -63,7 +63,7 @@ export function GlobalUser({ user }: GlobalUserMenuProps) {
                             src={user.image || ""}
                             alt={user.name || "User"}
                         />
-                        <AvatarFallback className="bg-orange-500 text-white font-bold">
+                        <AvatarFallback className="bg-blue-500 text-white font-bold">
                             {user.name?.charAt(0).toUpperCase() || "U"}
                         </AvatarFallback>
                     </Avatar>
@@ -81,14 +81,14 @@ export function GlobalUser({ user }: GlobalUserMenuProps) {
 
                 <DropdownMenuSeparator />
 
-                <DropdownMenuItem asChild className="cursor-pointer focus:bg-orange-50 focus:text-orange-600 dark:focus:bg-orange-950/20">
+                <DropdownMenuItem asChild className="cursor-pointer focus:bg-blue-50 focus:text-blue-600 dark:focus:bg-blue-950/20">
                     <Link href="/dashboard" className="flex items-center w-full px-2 py-1.5">
                         <LayoutDashboard className="mr-3 h-4 w-4" />
                         <span>Dashboard</span>
                     </Link>
                 </DropdownMenuItem>
 
-                <DropdownMenuItem asChild className="cursor-pointer focus:bg-orange-50 focus:text-orange-600 dark:focus:bg-orange-950/20">
+                <DropdownMenuItem asChild className="cursor-pointer focus:bg-blue-50 focus:text-blue-600 dark:focus:bg-blue-950/20">
                     <Link href="/dashboard/profile" className="flex items-center w-full px-2 py-1.5">
                         <UserIcon className="mr-3 h-4 w-4" />
                         <span>Profile Settings</span>

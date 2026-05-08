@@ -25,6 +25,7 @@ import {
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LogoIcon } from "@/components/layout/Navbar";
 
 const sidebarConfig = {
   admin: {
@@ -37,7 +38,7 @@ const sidebarConfig = {
     ],
   },
   tutor: {
-    title: "Tutor Menu",
+    title: "Doctor Menu",
     items: [
       { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
       { label: "My Bookings", icon: ClipboardList, href: "/my-bookings" },
@@ -47,7 +48,7 @@ const sidebarConfig = {
     ],
   },
   student: {
-    title: "Student Menu",
+    title: "Patient Menu",
     items: [
       { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
       { label: "My Bookings", icon: BookOpen, href: "/my-bookings" },
@@ -55,19 +56,10 @@ const sidebarConfig = {
   },
 };
 
-const LogoIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6 6H10V10H6V6Z" fill="#F97316" />
-    <path d="M14 6H18V10H14V6Z" fill="#F97316" />
-    <path d="M6 14H10V18H6V14Z" fill="#F97316" />
-    <path d="M14 14H18V18H14V14Z" fill="#F97316" fillOpacity="0.5" />
-  </svg>
-);
-
 export const Sidebar1 = ({ userRole, ...props }: { userRole?: string; } & React.ComponentProps<typeof Sidebar>) => {
   const pathname = usePathname();
 
-  const normalizedRole = userRole?.toLowerCase() || "student";
+  const normalizedRole = userRole?.toLowerCase() || "patient";
 
   const currentConfig =
     sidebarConfig[normalizedRole as keyof typeof sidebarConfig] ||
@@ -79,7 +71,7 @@ export const Sidebar1 = ({ userRole, ...props }: { userRole?: string; } & React.
         <Link href="/" className="flex items-center gap-2 group">
           <LogoIcon />
           <span className="text-xl font-bold text-foreground">
-            Skill Bridge
+            Anthropic
           </span>
         </Link>
       </SidebarHeader>
@@ -99,8 +91,8 @@ export const Sidebar1 = ({ userRole, ...props }: { userRole?: string; } & React.
                       className="h-11 px-6"
                     >
                       <Link href={item.href} className="flex items-center gap-3">
-                        <item.icon className={`size-5 ${isActive ? "text-orange-500" : "text-muted-foreground"}`} />
-                        <span className={`text-sm ${isActive ? "text-orange-600" : "font-medium"}`}>
+                        <item.icon className={`size-5 ${isActive ? "text-blue-500" : "text-muted-foreground"}`} />
+                        <span className={`text-sm ${isActive ? "text-blue-600" : "font-medium"}`}>
                           {item.label}
                         </span>
                       </Link>
