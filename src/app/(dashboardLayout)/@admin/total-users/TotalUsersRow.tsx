@@ -32,13 +32,13 @@ export default function TotalUsersRow({ user }: { user: any }) {
                         ? 'text-green-600 bg-green-100 dark:bg-green-900/30 dark:text-green-400'
                         : isDoctor
                             ? 'text-yellow-600 bg-yellow-100 dark:bg-yellow-900/30 dark:text-yellow-400'
-                            : 'text-red-600 bg-red-100 dark:bg-red-900/30 dark:text-red-400'
+                            : 'text-blue-500 bg-blue-100 dark:bg-blue-900/30 dark:text-blue-400'
                     }`}>
                     {/* Role Indicator Dot */}
                     <span className={`h-1.5 w-1.5 rounded-full 
-            ${isAdmin ? 'bg-green-500' : isDoctor ? 'bg-yellow-500' : 'bg-red-500'}`}>
+            ${isAdmin ? 'bg-green-500' : isDoctor ? 'bg-yellow-500' : 'bg-blue-500'}`}>
                     </span>
-                    <h2 className='text-xs font-bold uppercase'>{user.role}</h2>
+                    <h2 className='text-xs font-semibold uppercase'>{user.role}</h2>
                 </div>
             </td>
 

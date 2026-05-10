@@ -1,6 +1,6 @@
 "use client";
 
-import { BookingModalProps } from "@/types/tutor.booking";
+import { BookingModalProps } from "@/types/doctor.booking";
 import { X, Clock, Loader2, CheckCircle2, CreditCard, ChevronLeft } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -42,7 +42,6 @@ export default function BookingModal({ doctor, isOpen, onClose }: BookingModalPr
                 timeRangeSlot
             );
 
-            console.log("BOOKING RESPONSE:", res); // debug
 
             if (!res?.success || !res?.data?.id) {
                 toast.error(res?.error || "Failed to create booking");
@@ -50,13 +49,7 @@ export default function BookingModal({ doctor, isOpen, onClose }: BookingModalPr
             }
 
             const bookingId = res.data.id;
-            console.log("bookingId", bookingId);
-            console.log("tutorId", doctor.id);
-            // STEP 2: create payment session
             const paymentRes = await bookingPaymentAction(bookingId);
-
-            console.log("PAYMENT RESPONSE:", paymentRes); // debug
-
             if (paymentRes?.success && paymentRes?.url) {
                 setPaymentUrl(paymentRes.url);
                 setStep('payment');

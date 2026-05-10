@@ -36,6 +36,7 @@ export const Navbar = ({
     { title: "Doctors", url: "/doctors" },
     { title: "Dashboard", url: "/dashboard" },
     { title: "Profile", url: "/my-profile" },
+    { title: "Help With AI", url: "/help-with-ai" },
     { title: "About", url: "/about" },
   ],
   auth = {

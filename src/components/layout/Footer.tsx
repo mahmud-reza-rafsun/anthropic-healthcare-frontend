@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -101,7 +102,7 @@ const Footer = () => {
         title: "Privacy & HIPAA Compliance",
         content: "Your privacy is our priority. We strictly follow international healthcare data protection standards to ensure that your personal and medical information is never shared without consent."
       },
-      { name: "Contact", type: "contact" },
+      { name: "Contact", type: "contact", name_display: "Contact Us" },
     ],
   };
 
@@ -126,7 +127,6 @@ const Footer = () => {
     <footer className="w-full bg-background border-t border-blue-500/10">
       <div className="mx-auto container px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-8 py-16">
-
           <div className="col-span-full lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-6 justify-center lg:justify-start">
               <div className="flex gap-1">
@@ -157,22 +157,22 @@ const Footer = () => {
                   <li key={link.name}>
                     {link.type === "modal" ? (
                       <ContentModal title={link.title!} content={link.content!}>
-                        <button className="text-sm cursor-pointer text-muted-foreground hover:text-blue-500 transition-colors text-left">
+                        <span className="text-sm cursor-pointer text-muted-foreground hover:text-blue-500 transition-colors text-left block">
                           {link.name}
-                        </button>
+                        </span>
                       </ContentModal>
                     ) : link.type === "contact" ? (
                       <ContentModal
                         title="Emergency Support"
                         content="For immediate assistance, please use the contact form or call our emergency hotline. For online inquiries, please log in to your patient portal."
                       >
-                        <button className="text-sm cursor-pointer text-muted-foreground hover:text-blue-500 transition-colors text-left">
+                        <span className="text-sm cursor-pointer text-muted-foreground hover:text-blue-500 transition-colors text-left block">
                           {link.name}
-                        </button>
+                        </span>
                       </ContentModal>
                     ) : (
                       <Link
-                        href={link.href || "/"}
+                        href={link.title || "/"}
                         className="text-sm text-muted-foreground hover:text-blue-500 transition-colors"
                       >
                         {link.name}
@@ -208,11 +208,12 @@ const Footer = () => {
   );
 };
 
-// --- Sub-components for Modals ---
+// --- Sub-components (Base UI Compatibility) ---
 
 const ContentModal = ({ title, content, children }: { title: string; content: string; children: React.ReactNode }) => (
   <Dialog>
-    <DialogTrigger asChild>{children}</DialogTrigger>
+    {/* ReactNode কে ReactElement এ কাস্ট করা হয়েছে এরর দূর করতে */}
+    <DialogTrigger render={children as React.ReactElement} />
     <DialogContent className="sm:max-w-md rounded-[2.5rem] border-blue-500/20">
       <DialogHeader>
         <DialogTitle className="text-xl font-bold text-blue-500">{title}</DialogTitle>
@@ -226,22 +227,20 @@ const ContentModal = ({ title, content, children }: { title: string; content: st
 
 const ContactFormModal = ({ children }: { children: React.ReactNode }) => (
   <Dialog>
-    <DialogTrigger asChild>{children}</DialogTrigger>
+    <DialogTrigger render={children as React.ReactElement} />
     <DialogContent className="sm:max-w-lg rounded-[2.5rem] p-8 border-blue-500/20">
+      {/* বাকি কোড আগের মতোই... */}
       <DialogHeader>
         <DialogTitle className="text-2xl font-bold">Patient Inquiry</DialogTitle>
-        <DialogDescription>
-          Send us a message for medical inquiries or appointments. Our team will contact you shortly.
-        </DialogDescription>
       </DialogHeader>
       <form className="space-y-4 mt-4" onSubmit={(e) => e.preventDefault()}>
         <div className="grid grid-cols-2 gap-4">
-          <Input placeholder="Patient First Name" className="rounded-xl border-zinc-200 dark:border-zinc-800 focus:border-blue-500" />
-          <Input placeholder="Last Name" className="rounded-xl border-zinc-200 dark:border-zinc-800 focus:border-blue-500" />
+          <Input placeholder="Patient First Name" className="rounded-xl" />
+          <Input placeholder="Last Name" className="rounded-xl" />
         </div>
-        <Input type="email" placeholder="Email Address" className="rounded-xl border-zinc-200 dark:border-zinc-800 focus:border-blue-500" />
-        <Textarea placeholder="Describe your medical concern or service request..." className="rounded-xl border-zinc-200 dark:border-zinc-800 focus:border-blue-500 min-h-[120px]" />
-        <Button className="w-full cursor-pointer bg-blue-500 hover:bg-blue-600 text-white rounded-xl h-12 font-semibold transition-all">
+        <Input type="email" placeholder="Email Address" className="rounded-xl" />
+        <Textarea placeholder="Describe concern..." className="rounded-xl min-h-[120px]" />
+        <Button className="w-full bg-blue-500 text-white rounded-xl h-12 font-semibold">
           Submit Request
         </Button>
       </form>

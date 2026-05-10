@@ -33,7 +33,7 @@ export default function TutorForm({ onSubmitAction }: TutorFormProps) {
             categoryName: formData.get("categoryName") as string,
             bio: formData.get("bio") as string,
             hourlyRate: Number(formData.get("hourlyRate")),
-            subject: (formData.get("subjects") as string)
+            subject: (formData.get("specialties") as string)
                 .split(",")
                 .map(s => s.trim())
                 .filter(s => s !== ""),
@@ -122,7 +122,7 @@ export default function TutorForm({ onSubmitAction }: TutorFormProps) {
                     <label className="text-xs font-bold uppercase tracking-wider text-zinc-500 flex items-center gap-2">
                         <BookOpen size={14} className="text-blue-500" /> Specialties
                     </label>
-                    <input name="Specialties" type="text" required placeholder="pediatrics, surgery, oncology" className="flex h-12 w-full rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-4 text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all" />
+                    <input name="specialties" type="text" required placeholder="pediatrics, surgery, oncology" className="flex h-12 w-full rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 px-4 text-sm outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all" />
                 </div>
             </div>
 
