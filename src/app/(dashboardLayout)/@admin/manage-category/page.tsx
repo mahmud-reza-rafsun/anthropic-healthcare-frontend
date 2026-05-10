@@ -77,7 +77,7 @@ export default function CategoryPage() {
                         <label className="text-xs font-semibold uppercase tracking-wider text-gray-400 ml-1">Category Title</label>
                         <input
                             type="text"
-                            placeholder="e.g. Web Development"
+                            placeholder="e.g. Doctor category"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             className="w-full h-11 bg-zinc-50 dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 rounded-lg px-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"

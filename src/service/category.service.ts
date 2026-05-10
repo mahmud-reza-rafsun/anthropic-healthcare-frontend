@@ -44,7 +44,6 @@ export const categoryService = {
                 },
                 cache: "no-store",
             });
-
             const result = await res.json();
             if (!res.ok) {
                 return { data: [], error: result.message || "Failed to fetch" };

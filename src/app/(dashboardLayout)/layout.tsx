@@ -30,9 +30,7 @@ export default async function DashboardLayout({
 
     const session = await userService.getSession();
     const user = session?.data?.user || null;
-    console.log(user)
     const userRole = session?.data?.user ? session.data.user.role : null;
-    console.log(userRole);
 
     return (
         <SidebarProvider>

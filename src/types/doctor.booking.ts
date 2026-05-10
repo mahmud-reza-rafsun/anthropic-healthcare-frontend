@@ -19,3 +19,17 @@ export interface BookingCardProps {
         };
     };
 }
+
+export interface Doctor {
+    id: number;
+    name: string;
+    role: string;
+    email: string;
+    profile: string;
+    subject: string;
+    user: {
+        name: string;
+        email: string;
+        image: string;
+    }
+}

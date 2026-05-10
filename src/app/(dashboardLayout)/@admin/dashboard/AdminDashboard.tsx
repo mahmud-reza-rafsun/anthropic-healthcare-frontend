@@ -118,12 +118,12 @@ export default function AdminDashboard({ stats, revenueDetails, platformOverview
                                 <XAxis dataKey="label" axisLine={false} tickLine={false} fontSize={12} />
                                 <YAxis axisLine={false} tickLine={false} fontSize={12} />
                                 <Tooltip
-                                    cursor={{ fill: '#FF6900', opacity: 0.1 }}
+                                    cursor={{ fill: '#3b82f6', opacity: 0.1 }}
                                     contentStyle={{ borderRadius: '10px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                                 />
                                 <Bar
                                     dataKey="value"
-                                    fill="#FF6900"
+                                    fill="#3b82f6"
                                     radius={[8, 8, 0, 0]}
                                     barSize={50}
                                 />
@@ -142,8 +142,8 @@ export default function AdminDashboard({ stats, revenueDetails, platformOverview
                             <AreaChart data={revenueDetails}>
                                 <defs>
                                     <linearGradient id="colorRev" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="5%" stopColor="#FF6900" stopOpacity={0.4} />
-                                        <stop offset="95%" stopColor="#FF6900" stopOpacity={0} />
+                                        <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.4} />
+                                        <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
                                     </linearGradient>
                                 </defs>
                                 <CartesianGrid
@@ -157,7 +157,7 @@ export default function AdminDashboard({ stats, revenueDetails, platformOverview
                                 <Area
                                     type="monotone"
                                     dataKey="amount"
-                                    stroke="#FF6900"
+                                    stroke="#3b82f6"
                                     fillOpacity={1}
                                     fill="url(#colorRev)"
                                     strokeWidth={4}

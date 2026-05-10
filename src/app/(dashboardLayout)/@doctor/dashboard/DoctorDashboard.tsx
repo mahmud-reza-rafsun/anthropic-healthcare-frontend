@@ -120,7 +120,7 @@ export default function DoctorDashboard({ data }: DashboardProps) {
                                 <XAxis dataKey="month" axisLine={false} tickLine={false} fontSize={12} />
                                 <YAxis axisLine={false} tickLine={false} fontSize={12} />
                                 <Tooltip cursor={{ fill: 'transparent' }} contentStyle={{ borderRadius: '12px' }} />
-                                <Bar dataKey="value" fill="#f97316" radius={[8, 8, 0, 0]} barSize={40} />
+                                <Bar dataKey="value" fill="#3b82f6" radius={[8, 8, 0, 0]} barSize={40} />
                             </BarChart>
                         </ResponsiveContainer>
                     </CardContent>
