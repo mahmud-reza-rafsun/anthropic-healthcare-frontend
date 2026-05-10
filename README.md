@@ -1,22 +1,22 @@
-# 🎓 Skill Bridge — Frontend
+# 🏥 Anthropic Healthcare — Frontend
 
-> A modern tutoring marketplace where students book learning sessions, tutors manage their schedules and earnings, and knowledge flows seamlessly — from booking to payment.
+> A modern healthcare marketplace where patients book doctor appointments, doctors manage their schedules and earnings, and healthcare flows seamlessly — from booking to payment.
 
 ---
 
 ## 🎯 Problem Statement
 
-Students struggle to **find qualified tutors and book sessions easily**, while tutors lack a platform to **showcase their expertise, set availability, and get paid reliably**. Traditional tutoring lacks transparency, flexibility, and a smooth digital experience.
+Patients struggle to **find qualified doctors and book appointments easily**, while doctors lack a platform to **showcase their expertise, set availability, and get paid reliably**. Traditional healthcare booking lacks transparency, flexibility, and a smooth digital experience.
 
 ---
 
 ## 💡 Solution Overview
 
-**Skill Bridge** is a full-featured tutoring platform that enables:
-- Students to browse, book, and pay for tutoring sessions
-- Tutors to create profiles, set availability, and manage bookings
+**Anthropic Healthcare** is a full-featured healthcare platform that enables:
+- Patients to browse, book, and pay for doctor appointments
+- Doctors to create profiles, set availability, and manage bookings
 - Admins to oversee the entire platform ecosystem
-- A clear session lifecycle: **Book → Learn → Complete → Pay**
+- A clear appointment lifecycle: **Book → Consult → Complete → Pay**
 
 ---
 
@@ -29,19 +29,19 @@ Students struggle to **find qualified tutors and book sessions easily**, while t
 | Styling | Tailwind CSS |
 | Animation / UI Polish | Sera UI |
 | Runtime | Bun |
-| Auth | JWT (via backend API) |
+| Auth | BetterAuth (via backend API) |
 | State / Data Fetching | React Query / fetch |
 
 ---
 
 ## ✨ Key Features
 
-- 🔐 **Three-Role System** — Separate dashboards for Admin, Tutor, and Student
-- 📅 **Session Booking** — Students browse tutors and book available time slots
-- ✅ **Session Lifecycle** — Track session status: Pending → Confirmed → Completed
-- 💳 **Payment After Completion** — Students pay only after a session is completed
-- 👨‍🏫 **Tutor Profiles** — Tutors build profiles with subjects, bio, and hourly rate
-- 🗓️ **Availability Management** — Tutors set and update their weekly availability
+- 🔐 **Three-Role System** — Separate dashboards for Admin, Doctor, and Patient
+- 📅 **Appointment Booking** — Patients browse doctors and book available time slots
+- ✅ **Appointment Lifecycle** — Track appointment status: Pending → Confirmed → Completed
+- 💳 **Payment After Completion** — Patients pay only after an appointment is completed
+- 👨‍⚕️ **Doctor Profiles** — Doctors build profiles with specialties, bio, and consultation fee
+- 🗓️ **Availability Management** — Doctors set and update their weekly availability
 - 📊 **Role Dashboards** — Dedicated management panels per user role
 - 🌐 **Responsive Design** — Optimized for desktop and mobile
 
@@ -54,10 +54,10 @@ Students struggle to **find qualified tutors and book sessions easily**, while t
 ```
 /screenshots
   ├── homepage.png
-  ├── tutor-listing.png
+  ├── doctor-listing.png
   ├── booking-flow.png
-  ├── student-dashboard.png
-  ├── tutor-dashboard.png
+  ├── patient-dashboard.png
+  ├── doctor-dashboard.png
   └── admin-dashboard.png
 ```
 
@@ -65,15 +65,15 @@ Students struggle to **find qualified tutors and book sessions easily**, while t
 
 ## 🚀 Live Demo
 
-🔗 **Live URL:** [https://skill-bridge-front-end.vercel.app](https://skill-bridge-front-end.vercel.app)
+🔗 **Live URL:** [https://anthropic-healthcare.vercel.app](https://anthropic-healthcare.vercel.app)
 
 ### Demo Credentials
 
 | Role | Email | Password |
 |---|---|---|
-| Admin | admin@skill-bridge.com | 12345678 |
-| Tutor | tutor@skill-bridge.com | 12345678 |
-| Student | student@skill-bridge.com | 12345678 |
+| Admin | admin@anthropic.com | 12345678 |
+| Doctor | doctor@anthropic.com | 12345678 |
+| Patient | patient@anthropic.com | 12345678 |
 
 ---
 
@@ -88,8 +88,8 @@ Students struggle to **find qualified tutors and book sessions easily**, while t
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/skill-bridge-frontend.git
-cd skill-bridge-frontend
+git clone https://github.com/mahmud-reza-rafsun/anthropic-healthcare-frontend.git
+cd anthropic-healthcare-frontend
 
 # Install dependencies
 bun install
@@ -126,21 +126,21 @@ BACKEND_URL=https://your-backend-api.com
 ## 🗂️ Project Structure
 
 ```
-skill-bridge-frontend/
+anthropic-healthcare-frontend/
 ├── app/
 │   ├── (auth)/
 │   │   ├── login/
 │   │   └── register/
 │   ├── (dashboard)/
 │   │   ├── admin/
-│   │   ├── tutor/
+│   │   ├── doctor/
 │   │   │   ├── profile/
 │   │   │   ├── availability/
-│   │   │   └── sessions/
-│   │   └── student/
+│   │   │   └── bookings/
+│   │   └── patient/
 │   │       ├── bookings/
 │   │       └── payments/
-│   ├── tutors/
+│   ├── doctors/
 │   │   ├── [id]/
 │   │   └── page.tsx
 │   └── layout.tsx
@@ -161,7 +161,7 @@ skill-bridge-frontend/
 
 ## 🔗 Related Repository
 
-- **Backend API:** [skill-bridge-backend](https://github.com/your-username/skill-bridge-backend)
+- **Backend API:** [anthropic-healthcare-backend](https://github.com/mahmud-reza-rafsun/anthropic-healthcare-backend)
 
 ---
 
